@@ -34,9 +34,9 @@ export const updateProduct = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
   const { id } = req.params
-  await Product.findByIdAndDelete(id)
+  await Product.findByIdAndDelete(req.params.id)
   // res.send('delete product')
-  res.status(204)
+  res.status(204).json('product delete')
 }
 // module.exports = {
 //   getAllProducts: (req, res) => {
