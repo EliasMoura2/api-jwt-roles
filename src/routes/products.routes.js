@@ -5,8 +5,8 @@ const router = Router()
 import * as productsCtrl from '../controllers/products.controller'
 
 router.get('/', productsCtrl.getAllProducts)
-router.get('/', productsCtrl.getProduct)
-router.post('/:id', productsCtrl.createProduct)
+router.get('/:id', productsCtrl.getProduct)
+router.post('/', productsCtrl.createProduct)
 router.put('/:id', productsCtrl.updateProduct)
 router.delete('/:id', productsCtrl.deleteProduct)
 

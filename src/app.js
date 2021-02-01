@@ -7,7 +7,7 @@ const productRoutes = require('./routes/products.routes')
 
 // initializations
 const app = express();
-// require('./config/database')
+require('./config/database')
 app.set('pkg', pkg)
 
 // middleware
