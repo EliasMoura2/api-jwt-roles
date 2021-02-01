@@ -2,8 +2,8 @@ import express from 'express'
 import logger from 'morgan'
 import pkg from '../package.json'
 
-
 const productRoutes = require('./routes/products.routes')
+const authRoutes = require('./routes/auth.routes')
 
 // initializations
 const app = express();
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.use('/products', productRoutes)
-
+app.use('/api/products', productRoutes)
+app.use('/api/auth', authRoutes)
 
 module.exports = app

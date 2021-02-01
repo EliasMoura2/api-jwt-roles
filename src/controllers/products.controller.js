@@ -2,22 +2,17 @@ import Product from '../models/Product'
 
 export const getAllProducts = async (req, res) => {
   const products = await Product.find()
-  // res.json('get all products')
   res.status(200).json(products)
 }
 
 export const getProduct = async (req, res) => {
   const product = await Product.findById(req.params.id)
-  // res.json('get a product')
-  // const products = await Product.find()
   res.status(200).json(product)
 }
 
 export const createProduct = async (req, res) => {
   try {
-    // console.log(req.body) 
     const { name, category, price, imgURL } = req.body
-    // console.log(name, category, price, imgURL)
     const newProduct = new Product({ name, category, price, imgURL })
     const productSaved = await newProduct.save()
     // console.log(newProduct)
@@ -34,8 +29,6 @@ export const updateProduct = async (req, res) => {
     new: true
   })
   // devuelve el dato actualizado no el anterior
-  // res.send('update product')
-  // res.json(204).json(updatedProduct)
   res.status(200).json(updatedProduct)
 }
 

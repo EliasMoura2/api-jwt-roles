@@ -7,7 +7,8 @@ const productSchema = new Schema({
   price: Number,
   imgURL: String
 }, {
-  timestamps: true
+  timestamps: true,
+  versionKey: false
 })
 // para que no aparezca el _v
 

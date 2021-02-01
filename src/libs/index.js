@@ -1,0 +1,1 @@
+const userFound = User.find({ email })
