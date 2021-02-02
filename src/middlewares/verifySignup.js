@@ -1,8 +1,9 @@
-import { ROLES } from '../models/Role';
+// import { ROLES } from '../models/Role';
 import User from '../models/User'
+import Role from '../models/Role'
 // console.log(ROLES)
 
-export const checkRolesExisted = (req, res, next) => {
+export const checkRolesExisted = async (req, res, next) => {
   console.log(req.body.roles)
   if(req.body.roles){
     const long = req.body.roles.length
@@ -11,7 +12,9 @@ export const checkRolesExisted = (req, res, next) => {
       // console.log(req.body.roles)
       // console.log(req.body.roles[i])
       // console.log()
-      if(!ROLES.includes(req.body.roles[i])){
+      const Roles = await Role.find()
+      console.log('Roless', Roles)
+      if(!Roles.includes(req.body.roles[i])){
 
         return status(400).json({
           message: `Role ${req.body.roles[i]} does not exists`
