@@ -5,7 +5,7 @@ export const getAllUsers = async (req, res) => {
   res.status(200).json(users)
 }
 
-export const getUSer = async (req, res) => {
+export const getUser = async (req, res) => {
 // try{
     const user = await User.findById(req.params.id)
     if(!user) return res.status(404).json({ message: 'User does not exist'})

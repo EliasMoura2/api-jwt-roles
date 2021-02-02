@@ -3,6 +3,7 @@ import logger from 'morgan'
 import pkg from '../package.json'
 
 import { createRoles } from './libs/initialSetup'
+import { createUserAdmin } from './libs/createUserAdmin'
 
 const productRoutes = require('./routes/products.routes')
 const authRoutes = require('./routes/auth.routes')
@@ -13,6 +14,7 @@ const roleRoutes = require('./routes/role.routes')
 const app = express();
 require('./config/database')
 createRoles()
+createUserAdmin()
 /*
 Server listening on port = 5000
 DB is CONNECTED

@@ -1,15 +1,25 @@
 import { Router } from 'express'
 const router = Router()
-import * as userCtrl from '../controllers/user.controller'
-import { authJWT, verifySignup } from '../middlewares'
+// example = const { renderIndex, renderAbout } = require("../controllers/index.controller");
+// import * as userCtrl from '../controllers/user.controller'
+import { 
+  getAllUsers, 
+  getUser, 
+  updateUser
+} from '../controllers/user.controller'
 
-router.get('/', userCtrl.getAllUsers)
-router.get('/:id', userCtrl.getUSer)
+import { 
+  authJWT, 
+  verifySignup
+} from '../middlewares'
+
+router.get('/', getAllUsers)
+router.get('/:id', getUser)
 router.put('/:id', [
     authJWT.verifyToken, 
     authJWT.isAdmin, 
     verifySignup.checkRolesExisted
   ], 
-  userCtrl.updateUser)
+  updateUser)
 
 module.exports = router
